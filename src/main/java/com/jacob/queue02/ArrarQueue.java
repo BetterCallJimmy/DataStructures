@@ -53,9 +53,9 @@ public class ArrarQueue {
     }
 
     private int maxSize;
-    //队列头标记
+    //队列头标记，头元素的前一个位置
     private int front;
-    //队列尾标记
+    //队列尾标记，最后一个元素的位置
     private int rear;
     //数组队列
     private int[] queue;
