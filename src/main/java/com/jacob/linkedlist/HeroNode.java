@@ -5,7 +5,7 @@ public class HeroNode {
     private String name;
     public HeroNode next;
 
-    public HeroNode(){};
+    public HeroNode(){}
 
     public HeroNode(int no, String name) {
         this.no=no;
