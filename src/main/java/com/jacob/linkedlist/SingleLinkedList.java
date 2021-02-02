@@ -9,23 +9,11 @@ public class SingleLinkedList {
     //节点的next不为空时，看下一个节点的next是否为空，直到next为空
 
     public void add(HeroNode heroNode){
-//        if (headNode.next == null){
-//            headNode.next=heroNode;
-//        }else {
-//            HeroNode temp=headNode;
-//            while (temp.next!=null){
-//
-//                temp = temp.next;
-//            }
-//            temp.next = heroNode;
-//        }
-
             HeroNode temp=headNode;
             while (temp.next!=null){
                 temp = temp.next;
             }
             temp.next = heroNode;
-
     }
 
     public void show(){
@@ -40,6 +28,33 @@ public class SingleLinkedList {
         }
     }
 
+    //链表反转
+    public SingleLinkedList reverse(){
+        if (headNode.next == null){
+            System.out.println("空链表");
+            return null;
+        }
+        if (headNode.next.next == null){
+            return this;
+        }
+        SingleLinkedList reversed = new SingleLinkedList();
+
+
+        //原链表当前要移动的那个节点
+        HeroNode cur = headNode.next;
+        //要移动的那个节点的下一个节点
+        HeroNode next = null;
+        while (cur != null){
+            //要先保存好原链表当前节点的下一个节点
+            next = cur.next;
+            //头插法
+            cur.next = reversed.headNode.next;
+            reversed.headNode.next = cur;
+            cur = next;
+        }
+        return reversed;
+    }
+
     public static void main(String[] args) {
         SingleLinkedList singleLinkedList = new SingleLinkedList();
         HeroNode aa = new HeroNode(1, "aa");
@@ -49,8 +64,10 @@ public class SingleLinkedList {
         singleLinkedList.add(aa);
         singleLinkedList.add(bb);
         singleLinkedList.add(cc);
-
         singleLinkedList.show();
+        System.out.println("-------------------------");
+        singleLinkedList.reverse().show();
+
     }
 
 
