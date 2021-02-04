@@ -1,7 +1,7 @@
 package com.jacob.linkedlist;
 
 public class HeroNode {
-    private int no;
+    protected int no;
     private String name;
     public HeroNode next;
 
