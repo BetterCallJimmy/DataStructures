@@ -27,6 +27,23 @@ public class SingleLinkedList {
             }
         }
     }
+    public static SingleLinkedList mergeTwoLists(SingleLinkedList l1,SingleLinkedList l2) {
+        SingleLinkedList dum = new SingleLinkedList();
+        HeroNode cur = dum.headNode;
+        while(l1.headNode.next != null && l2.headNode.next  != null) {
+            if(l1.headNode.next.no < l2.headNode.next.no) {
+                cur.next = l1.headNode.next;
+                l1.headNode.next = l1.headNode.next.next;
+            }
+            else {
+                cur.next = l2.headNode.next;
+                l2.headNode.next = l2.headNode.next.next;
+            }
+            cur = cur.next;
+        }
+        cur.next = l1.headNode.next != null ? l1.headNode.next : l2.headNode.next;
+        return dum;
+    }
 
     //合并两个有序的链表，返回1个有效的链表
     public static SingleLinkedList merge2List(SingleLinkedList l1,SingleLinkedList l2){
@@ -48,7 +65,7 @@ public class SingleLinkedList {
         HeroNode gtCurr = gtLink.headNode.next;
         HeroNode ltCurr = ltLink.headNode.next;
         HeroNode temp;
-        boolean find = false;
+
         while (gtCurr != null){
             temp = gtCurr.next;
             while (ltCurr != null){
@@ -113,17 +130,26 @@ public class SingleLinkedList {
 //        singleLinkedList.reverse().show();
 
         SingleLinkedList lt = new SingleLinkedList();
-        lt.add(new HeroNode(1,"a"));
-        lt.add(new HeroNode(3,"a"));
-        lt.add(new HeroNode(7,"a"));
+        for (int i = 0; i < 200000; i++) {
+            lt.add(new HeroNode(i,"a"));
+        }
 
         SingleLinkedList gt = new SingleLinkedList();
-//        gt.add(new HeroNode(1,"a"));
-        gt.add(new HeroNode(8,"a"));
-        gt.add(new HeroNode(9,"a"));
+        for (int i = 0; i < 150000; i++) {
+            gt.add(new HeroNode(i-77777,"a"));
+        }
 
+        long s1 = System.currentTimeMillis();
         SingleLinkedList mergedList = SingleLinkedList.merge2List(lt, gt);
-        mergedList.show();
+        long e1 = System.currentTimeMillis();
+////        mergedList.show();
+//        System.out.println("-------------------------");
+//        long s2 = System.currentTimeMillis();
+//        SingleLinkedList singleLinkedList = SingleLinkedList.mergeTwoLists(lt, gt);
+//        long e2 = System.currentTimeMillis();
+//        singleLinkedList.show();
+        System.out.println(e1-s1);
+//        System.out.println(e2-s2p);//9
     }
 
 
