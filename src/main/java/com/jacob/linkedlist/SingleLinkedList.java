@@ -1,5 +1,8 @@
 package com.jacob.linkedlist;
 import com.jacob.linkedlist.HeroNode;
+
+import java.util.Stack;
+
 public class SingleLinkedList {
 
     //头节点
@@ -27,6 +30,7 @@ public class SingleLinkedList {
             }
         }
     }
+    //合并两个有序的链表，返回1个有效的链表
     public static SingleLinkedList mergeTwoLists(SingleLinkedList l1,SingleLinkedList l2) {
         SingleLinkedList dum = new SingleLinkedList();
         HeroNode cur = dum.headNode;
@@ -116,39 +120,62 @@ public class SingleLinkedList {
         return reversed;
     }
 
+    //逆序打印链表,不修改原来的链表
+    public static void reversePrint(SingleLinkedList l1){
+
+        Stack<HeroNode> stack = new Stack<HeroNode>();
+
+        HeroNode cur = l1.headNode.next;
+
+        while (cur != null){
+            stack.push(cur);
+            cur = cur.next;
+        }
+
+        while (stack.size() > 0){
+            System.out.println(stack.pop());
+        }
+
+
+    }
+
     public static void main(String[] args) {
-//        SingleLinkedList singleLinkedList = new SingleLinkedList();
-//        HeroNode aa = new HeroNode(1, "aa");
-//        HeroNode bb = new HeroNode(2, "bb");
-//        HeroNode cc = new HeroNode(3, "cc");
-//
-//        singleLinkedList.add(aa);
-//        singleLinkedList.add(bb);
-//        singleLinkedList.add(cc);
-//        singleLinkedList.show();
-//        System.out.println("-------------------------");
+        SingleLinkedList singleLinkedList = new SingleLinkedList();
+        HeroNode aa = new HeroNode(1, "aa");
+        HeroNode bb = new HeroNode(2, "bb");
+        HeroNode cc = new HeroNode(3, "cc");
+
+        singleLinkedList.add(aa);
+        singleLinkedList.add(bb);
+        singleLinkedList.add(cc);
+        singleLinkedList.show();
+        System.out.println("-------------------------");
 //        singleLinkedList.reverse().show();
+        SingleLinkedList.reversePrint(singleLinkedList);
+        System.out.println("-------------------------");
+        singleLinkedList.show();
 
-        SingleLinkedList lt = new SingleLinkedList();
-        for (int i = 0; i < 200000; i++) {
-            lt.add(new HeroNode(i,"a"));
-        }
 
-        SingleLinkedList gt = new SingleLinkedList();
-        for (int i = 0; i < 150000; i++) {
-            gt.add(new HeroNode(i-77777,"a"));
-        }
-
-        long s1 = System.currentTimeMillis();
-        SingleLinkedList mergedList = SingleLinkedList.merge2List(lt, gt);
-        long e1 = System.currentTimeMillis();
+//        SingleLinkedList lt = new SingleLinkedList();
+//        for (int i = 0; i < 200000; i++) {
+//            lt.add(new HeroNode(i,"a"));
+//        }
+//
+//        SingleLinkedList gt = new SingleLinkedList();
+//        for (int i = 0; i < 150000; i++) {
+//            gt.add(new HeroNode(i-77777,"a"));
+//        }
+//
+//        long s1 = System.currentTimeMillis();
+//        SingleLinkedList mergedList = SingleLinkedList.merge2List(lt, gt);
+//        long e1 = System.currentTimeMillis();
 ////        mergedList.show();
 //        System.out.println("-------------------------");
 //        long s2 = System.currentTimeMillis();
 //        SingleLinkedList singleLinkedList = SingleLinkedList.mergeTwoLists(lt, gt);
 //        long e2 = System.currentTimeMillis();
 //        singleLinkedList.show();
-        System.out.println(e1-s1);
+//        System.out.println(e1-s1);
 //        System.out.println(e2-s2p);//9
     }
 
