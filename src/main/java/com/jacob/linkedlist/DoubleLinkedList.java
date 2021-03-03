@@ -95,7 +95,7 @@ public class DoubleLinkedList {
         orderList.addByOrder(new DoubleNode(77,"bb"));
         orderList.addByOrder(new DoubleNode(3,"cc"));
         orderList.addByOrder(new DoubleNode(55,"dd"));
-        System.out.println("---------------------------");
+        System.out.println("----------------------------");
         orderList.show();
     }
 }
