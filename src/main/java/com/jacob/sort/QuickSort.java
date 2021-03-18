@@ -51,7 +51,7 @@ private static int[] numb = {9,5,3,6,2,5,8,1};
         j=right;
         while(i!=j)
         {
-            //顺序很重要，要先从右边开始找
+            //顺序很重要，要先从左向右边开始找
             while(numb[j]>=pivot && i<j)
                 j--;
             //再找右边的
