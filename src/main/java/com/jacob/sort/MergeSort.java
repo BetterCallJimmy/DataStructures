@@ -4,12 +4,18 @@ import java.util.Arrays;
 
 public class MergeSort {
 
-    private static int[] numb = {7,3,5,9,1,7,6,4};
+//    private static int[] numb = {7,3,5,9,1,7,6,4};
 
-    private static void mergeSort(int[] numb,int left,int mid,int right){
-        int l = left;
-        int r = mid + 1;
-
+    private static void mergeSort(int[] numb,int left,int right,int[] dum){
+        if (left == right){
+           return;
+        }
+        int mid =left + (right - left) / 2;
+        //左边递归分解
+        mergeSort(numb,left,mid,dum);
+        //右边递归分解
+        mergeSort(numb,mid + 1,right,dum);
+        sort(numb,left,mid,right,dum);
 
     }
 
@@ -47,9 +53,12 @@ public class MergeSort {
     }
 
     public static void main(String[] args) {
-        int[] numbs = {6,17,25,44,5,7,65,114};
-            int[] dum = new int[numb.length];
-            sort(numbs,0,3,numb.length - 1,dum);
+//        int[] numbs = {6,17,25,44,5,7,65,114};
+        int[] numbs = {6,8,5,3,1};
+
+        int[] dum = new int[numbs.length];
+//            sort(numbs,0,3,numb.length - 1,dum);
+        mergeSort(numbs,0,numbs.length - 1,dum);
         System.out.println(Arrays.toString(dum));
     }
 

@@ -1,6 +1,7 @@
 package com.jacob.linkedlist;
 import com.jacob.linkedlist.HeroNode;
 
+import java.util.Queue;
 import java.util.Stack;
 
 public class SingleLinkedList {
@@ -17,6 +18,9 @@ public class SingleLinkedList {
                 temp = temp.next;
             }
             temp.next = heroNode;
+        Stack<Character> s = new Stack<Character>();
+
+
     }
 
     public void show(){
