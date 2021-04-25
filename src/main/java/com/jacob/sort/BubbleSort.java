@@ -5,10 +5,10 @@ public class BubbleSort {
     public static void main(String[] args) {
 //        int[] numbs = {2,8,5,6,1,4};
 
-        int[] numbs = new int[80000];
+        int[] numbs = new int[800000];
 
-        for (int i = 0; i < 80000; i++) {
-            numbs[i] = (int) (Math.random() * 10000);
+        for (int i = 0; i < 800000; i++) {
+            numbs[i] = (int) (Math.random() * 100000);
         }
 
         int m = numbs.length;
